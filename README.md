@@ -8,8 +8,12 @@
 
 A simple yet feature-rich to-do list application built with React Native and Expo, focusing on a clean UI, smooth animations, and a well-structured, test-driven codebase.
 
-## Demo Video
-Check the demo video file in the `docs` folder for a quick overview of the app's features and user interface.
+## Demo
+
+The following GIF showcases the core functionalities of the app. Click the image to view the full HD video with sound.
+
+[![application show](./docs/todo_demo.gif)](https://pub-0a4cfd1889fc48acafea1624679cfdef.r2.dev/todo_demo_video.mp4)
+
 
 ## Features
 
