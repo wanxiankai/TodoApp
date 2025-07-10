@@ -1,6 +1,6 @@
+import { AnimatePresence, MotiText, MotiView } from 'moti';
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import { MotiView, MotiText, AnimatePresence } from 'moti';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Task } from '../types';
 
 interface TaskItemProps {
@@ -25,7 +25,12 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onToggle, onDelete }) => {
   return (
     <AnimatePresence>
       <MotiView {...motiContainerProps} style={styles.taskContainer}>
-        <TouchableOpacity onPress={() => onToggle(task.id)} style={styles.checkboxContainer}>
+        {/* testID now uses task.text for predictable access in tests */}
+        <TouchableOpacity
+          onPress={() => onToggle(task.id)}
+          style={styles.checkboxContainer}
+          testID={`checkbox-${task.text}`}
+        >
           <MotiView
             style={styles.checkbox}
             animate={{
@@ -58,7 +63,12 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onToggle, onDelete }) => {
           />
         </View>
 
-        <TouchableOpacity onPress={() => onDelete(task.id)} style={styles.deleteButton}>
+        {/* testID now uses task.text for predictable access in tests */}
+        <TouchableOpacity
+          onPress={() => onDelete(task.id)}
+          style={styles.deleteButton}
+          testID={`delete-${task.text}`}
+        >
           <Text style={styles.deleteButtonText}>✕</Text>
         </TouchableOpacity>
       </MotiView>
