@@ -2,12 +2,12 @@
 
 ---
 
-[**English**](.项目遵循清晰的模块化架构，以实现关注点分离：
+[**English**](./README.md) | [**中文**](./README.zh-CN.md)
 
 -   **`/app`**: 包含由 Expo Router 管理的屏幕布局和导航逻辑。`index.tsx` 作为主要的待办事项屏幕，而 `auth.tsx` 处理用户认证。导航受到保护，会根据用户的认证状态自动重定向用户。
 -   **`/components`**: 存放可复用的、"纯粹"的 UI 组件（如 `TaskItem`, `AddTaskInput`, `LoginForm`, `RegisterForm` 等）。这些组件通过 props 接收数据和回调函数，不关心业务逻辑。
 -   **`/hooks`**: 集中管理所有业务逻辑。`useTasks.ts` 这个自定义 Hook 管理了任务列表的全部状态，而 `useAuth.ts` 处理用户认证、注册、登录、注销和用户统计跟踪。
--   **`/types`**: 专用的 `index.ts` 文件定义了共享的 TypeScript 接口（如 `Task`, `User`, 和 `UserStats` 类型），确保了整个应用的类型安全。E.md) | [**中文**](./README.zh-CN.md)
+-   **`/types`**: 专用的 `index.ts` 文件定义了共享的 TypeScript 接口（如 `Task`, `User`, 和 `UserStats` 类型），确保了整个应用的类型安全。
 
 ## 🇬🇧 中文
 
