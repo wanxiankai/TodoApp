@@ -17,7 +17,7 @@
 
 下面的 GIF 动画展示了应用的核心功能。点击图片可以查看带声音的完整高清 MP4 视频。
 
-[![应用功能演示](./docs/todo_demo.gif)](https://pub-0a4cfd1889fc48acafea1624679cfdef.r2.dev/todo_demo_video.mp4)
+[![应用功能演示](./docs/todo_demo.gif)](https://pub-0a4cfd1889fc48acafea1624679cfdef.r2.dev/todo_demo.mp4)
 
 ## 功能特性
 

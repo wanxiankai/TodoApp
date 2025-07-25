@@ -12,7 +12,7 @@ A simple yet feature-rich to-do list application built with React Native and Exp
 
 The following GIF showcases the core functionalities of the app. Click the image to view the full HD video with sound.
 
-[![application show](./docs/todo_demo.gif)](https://pub-0a4cfd1889fc48acafea1624679cfdef.r2.dev/todo_demo_video.mp4)
+[![application show](./docs/todo_demo.gif)](https://pub-0a4cfd1889fc48acafea1624679cfdef.r2.dev/todo_demo.mp4)
 
 
 ## Features
