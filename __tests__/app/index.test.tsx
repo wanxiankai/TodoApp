@@ -1,14 +1,46 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { fireEvent, render, waitFor } from '@testing-library/react-native';
-import React from 'react';
 import TodoAppScreen from '../../app/index';
 
 const mockedAsyncStorage = AsyncStorage as jest.Mocked<typeof AsyncStorage>;
 
+// Mock expo-router
+jest.mock('expo-router', () => ({
+  router: {
+    replace: jest.fn(),
+  },
+}));
+
 describe('TodoAppScreen', () => {
+  const mockUser = {
+    id: '1',
+    email: 'test@example.com',
+    name: 'Test User',
+    createdAt: '2024-01-01T00:00:00.000Z',
+  };
+
   beforeEach(() => {
     mockedAsyncStorage.clear();
     jest.clearAllMocks();
+    
+    // Mock authenticated user
+    mockedAsyncStorage.getItem.mockImplementation((key) => {
+      if (key === '@todo_app_current_user') {
+        return Promise.resolve(JSON.stringify(mockUser));
+      }
+      if (key === '@todo_app_tasks_1') {
+        return Promise.resolve('[]');
+      }
+      if (key === '@todo_app_user_stats') {
+        return Promise.resolve(JSON.stringify([{
+          userId: '1',
+          sevenDayTodoCreatedCount: 0,
+          sevenDayLoginCount: 1,
+          lastUpdated: new Date().toISOString(),
+        }]));
+      }
+      return Promise.resolve(null);
+    });
   });
 
   it('should render the title and input box', async () => {
@@ -32,7 +64,7 @@ describe('TodoAppScreen', () => {
     expect(await findByText(taskText)).toBeTruthy();
 
     expect(mockedAsyncStorage.setItem).toHaveBeenCalledWith(
-      '@todo_app_tasks',
+      '@todo_app_tasks_1',
       expect.stringContaining(taskText)
     );
   });

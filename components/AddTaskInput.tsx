@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 interface AddTaskInputProps {
   onAddTask: (text: string) => void;
@@ -40,13 +40,17 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     paddingHorizontal: 16,
+    paddingVertical: Platform.OS === 'android' ? 0 : 12,
     borderRadius: 12,
     fontSize: 16,
     color: '#1e293b',
     borderWidth: 1,
     borderColor: '#e2e8f0',
-    height: 50,
     textAlignVertical: 'center',
+    includeFontPadding:false,
+    lineHeight: Platform.OS === 'android' ? 18: undefined,
+    height: Platform.OS === 'android' ? 50 : undefined,
+    minHeight: 50
   },
   addButton: {
     marginLeft: 10,
